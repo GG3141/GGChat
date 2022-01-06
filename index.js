@@ -2,7 +2,6 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const path = require("path");
-
 const app = express();
 const httpserver = http.Server(app);
 const io = socketio(httpserver);
@@ -10,6 +9,7 @@ const io = socketio(httpserver);
 const gamedirectory = path.join(__dirname, "html");
 
 app.use(express.static(gamedirectory));
+app.use(express.json('10mb'))
 
 httpserver.listen(3000);
 
